@@ -1,0 +1,34 @@
+<div  class="container">
+  <h1>{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+  <a href="/book/add" class="btn btn-primary">Create book</a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">title</th>
+          <th scope="col">author</th>
+          <th scope="col">isbn</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each books}}
+            <tr>
+                <th> {{ _id }} </th>
+                <th> {{ title }} </th>
+                <th> {{ author }} </th>
+                <th> {{ isbn }} </th>
+                <th>
+                  <a href="/book/add/{{ _id }}">Update</a> |
+                  <form action="/" method="post" class="form-action">
+                      <input type="hidden" name="_id" value="{{ _id }}">
+                      <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
+                </th>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+</div>

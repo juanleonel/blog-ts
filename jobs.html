@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    .image {
+      width: 50px;
+    }
+    .item-wrapper {
+      display: flex;
+    }
+    .item-title {
+      margin-bottom: 0px;
+    }
+    .m-right-1 {
+      margin-right: 1%;
+    }
+    .item-info {
+      width: 87%;
+    }
+    .item-caption {
+      color: #000000ad;
+      font-size: 15px;
+    }
+    .item-date {
+      font-size: 12px;
+    }
+    .border {
+      border-radius: 5px;
+      border: 1px solid #bfbfbf;
+    }
+    .m-top-3 {
+      margin-top: 3%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="#">Jobs</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Add new job</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">User settings</a>
+            </li>
+          </ul>
+          <a href="" class="nav-link">Log in</a>
+        </div>
+      </div>
+    </nav>
+    <div class="row">
+      <div class="col-8">
+        <form class="d-flex m-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div class="item-wrapper p-3 border">
+          <div class="item-image m-right-1">
+            <img class="image" src="./vine2.png" alt="">
+          </div>
+          <div class="item-info">
+            <p class="item-title">Full-stack developer</p>
+            <span class="item-caption">Full-time</span> <span class="item-caption">Remote</span>
+          </div>
+          <div class="item-date">
+            <span class="item-caption">Yesterday</span>
+          </div>
+        </div>
+        <div class="item-wrapper p-3 border">
+          <div class="item-image m-right-1">
+            <img class="image" src="./vine2.png" alt="">
+          </div>
+          <div class="item-info">
+            <p class="item-title">Full-stack developer</p>
+            <span class="item-caption">Full-time</span> <span class="item-caption">Remote</span>
+          </div>
+          <div class="item-date">
+            <span class="item-caption">2 dasy ago</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="m-top-3">
+          <h5>
+            Categories
+          </h5>
+          <a class="btn btn-secondary" href="">Senior</a>
+          <a class="btn btn-secondary" href="">Mid-level</a>
+          <a class="btn btn-secondary" href="">Junior</a>
+        </div>
+        <div class="m-top-3">
+          <h5>
+            Terms
+          </h5>
+          <a class="btn btn-secondary" href="">Full-time</a>
+          <a class="btn btn-secondary" href="">Part-time</a>
+          <a class="btn btn-secondary" href="">Freelance</a>
+        </div>
+        <div class="m-top-3">
+          <form action="">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <button class="btn btn-success">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <form action="">
+          <div class="mb-3">
+            <label for="Title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="Title" aria-describedby="Title">
+          </div>
+          <div class="mb-3">
+            <label for="Title" class="form-label">Description</label>
+            <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" class="form-control" id="salary" aria-describedby="salary">
+          </div>
+          <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Category</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Terms</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Logo</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+          <button class="btn btn-success">Create</button>
+          <button class="btn btn-warning">Cancel</button>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="item-wrapper p-3">
+          <div class="item-image m-right-1">
+            <img class="image" src="./vine2.png" alt="">
+          </div>
+          <div class="item-info">
+            <p class="item-title">Full-stack developer</p>
+            <span class="item-caption">Full-time</span> <span class="item-caption">Remote</span>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-success">Apply now</button>
+          <button class="btn btn-primary">Share</button>
+        </div>
+
+        <div class="item-content m-top-3">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde atque aperiam praesentium reprehenderit tempora at totam voluptates explicabo, dolore, maxime suscipit temporibus natus maiores voluptas accusantium beatae tenetur quod magni!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt labore corporis earum dolor? Dolorum quisquam ipsum facere voluptatum. Minus harum nam atque nisi quo temporibus recusandae voluptatibus, tenetur quaerat facilis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat at error hic modi mollitia libero enim officia culpa nemo laboriosam. Nemo itaque id corporis dicta, ratione illo earum dolores optio?q
+          </p>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia officia est perferendis quas vel nulla, hic facilis nostrum et! Voluptas, dicta architecto quis aliquid nisi nesciunt reiciendis molestiae cum.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h5>User settings</h5>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Current Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button class="btn btn-warning">Cancel</button>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h5>Login</h5>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h5>Sing up</h5>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div> 
+          <button type="submit" class="btn btn-primary">Login</button>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

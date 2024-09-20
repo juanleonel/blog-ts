@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    .width {
+      width: 1%;
+    }
+    #progress-bar {
+        width: 0;
+        height: 20px;
+        background-color: #4CAF50;
+        transition: width 1s ease; 
+    }
+    .image {
+      max-width: 260px;
+      height: auto;
+    }
+
+    .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-background {
+      padding: 1%;
+      border-radius: 5px;
+      background: cadetblue;
+    }
+
+    .comment-lite {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      padding: 5px;
+      border-bottom: 1px solid #5c3f4357;
+    }
+    .comment-info {
+      margin: 5px;
+    }
+    .comment-date {
+      color: #0202028c;
+    }
+  </style>
+</head>
+<body>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
+    Abrir Modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="miModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="miModalLabel">Título del Modal</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                  Contenido del modal. Puedes agregar aquí lo que desees mostrar.
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="container">
+
+    <div class="">
+      <div class="col-md-12 col-sm-6">
+        <div class="profile-wrapper">
+          Profile
+          <div class="profile-background">
+            <img src="./bird-8058620_640.jpg" class="image rounded mx-auto d-block" alt="...">
+          </div>
+          <div class="profile-summary-info">
+            <h2>Jhon Doe</h2>
+            <h3>Alias</h3>
+            <span>Country, City</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate sed nesciunt quaerat blanditiis dolor neque perferendis voluptate ad veritatis labore minima aperiam veniam nihil sit totam libero, odio omnis necessitatibus.</p>
+          </div>
+          <div class="profile-data">
+            Creado el 19 de agosto, 2022, Ultima publicacion 1 dia, Ultima visita 3 horas, Vistas 3
+          </div>
+          <div class="container mt-5">
+            <ul class="nav nav-tabs" id="myTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#tab1">Resumen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tab2">Actividad</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab1">
+                  5k Dados, 6k Recibidas, 500 Publicaciones
+                </div>
+                <div class="tab-pane fade" id="tab2">
+                  <div class="comment-lite">
+                    <!-- <div class="comment-image">
+                      <img src="./bird-8058620_640.jpg" class="image rounded mx-auto d-block" alt="...">
+                    </div> -->
+                    <div class="comment-info">
+                      <span class="comment-date">2 Days</span>
+                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit consequatur laboriosam nemo ullam eum ipsum iure similique excepturi, nostrum aliquid eligendi cum dolorum ab molestias quidem dolore quisquam nulla aspernatur.s</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <h2>Login</h2>
+        <form class="login">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+      <div class="col-md-8 col-sm-6">Columna 2</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <h2>Create account</h2>
+        <form class="login">
+          <div class="mb-3">
+            <label for="userName" class="form-label">Username</label>
+            <input type="text" class="form-control" id="userName" aria-describedby="userName">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="confirmPassword" class="form-control" id="confirmPassword">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="conditions">
+            <label class="form-check-label" for="conditions">Conditions</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+      </div>
+      <div class="col-md-8 col-sm-6">Columna 2</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h1>
+          User
+        </h1>
+        <form class="login">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="name">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="lastName" aria-describedby="lastName">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="email">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="active">
+            <label class="form-check-label" for="active">Active</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <!-- <div id="progress-bar"></div> -->
+    <button type="button" class="btn btn-primary">Add</button>
+    <br>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td><button type="button" class="btn btn-info">Update</button>
+              | <button type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script>
+  const exampleModal = document.getElementById('exampleModal')
+  if (exampleModal) {
+    exampleModal.addEventListener('show.bs.modal', event => {
+      // Button that triggered the modal
+      const button = event.relatedTarget
+      // Extract info from data-bs-* attributes
+      const recipient = button.getAttribute('data-bs-whatever')
+      // If necessary, you could initiate an Ajax request here
+      // and then do the updating in a callback.
+
+      // Update the modal's content.
+      const modalTitle = exampleModal.querySelector('.modal-title')
+      const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+      modalTitle.textContent = `New message to ${recipient}`
+      modalBodyInput.value = recipient
+    })
+  }
+ (function() {
+ })()
+</script>
+</html>
