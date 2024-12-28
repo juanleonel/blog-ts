@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Book } from './book.interface';
+import { IBook } from './book.interface';
 
 const bookSchema = new mongoose.Schema({
   title: String,
@@ -9,4 +9,4 @@ const bookSchema = new mongoose.Schema({
   releaseDate: Date,
 });
 
-export const BookModel = mongoose.model<Book>('book', bookSchema);
+export const BookModel = mongoose.model<IBook>('book', bookSchema);

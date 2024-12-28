@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { body, validationResult } from "express-validator";
 import { IBookService } from "../interfaces/IBookService.interface";
 
 export class BookController {
@@ -9,10 +10,13 @@ export class BookController {
   }
 
   create = async (req: Request, res: Response, next: any) => {
-    const book = await this._bookService.getOne({ _id: req.params.id as string });
-    console.log(book);
-
-    return res.render('create', { title: 'Create book', book: book });
+    try {
+      const book = await this._bookService.getOne({ _id: req.params.id as string });
+  
+      return res.render('create', { title: 'Create book', book: book });
+    } catch (error) {
+      next(error)
+    }
   }
 
   detail = async (req: Request, res: Response, next: any) => {
@@ -20,7 +24,14 @@ export class BookController {
   }
 
   delete = async (req: Request, res: Response, next: any) => {
-    throw new Error('Method not implemented.');
+    try {
+      const { id } = req.params;
+      this._bookService.delete(id.toString());
+
+      return res.redirect('/book');
+    } catch (error) {
+      next(error)
+    }
   }
 
   update = async (req: Request, res: Response, next: any) => {
@@ -29,13 +40,13 @@ export class BookController {
 
   submit = async (req: Request, res: Response, next: any) => {
     try {
-      const id = req.query.id as string;
+      const { id } = req.query;
       let result;
-  
+
       if (!id) {
         result = await this._bookService.add(req.body);
       } else {
-        result = await this._bookService.update(id, req.body);
+        result = await this._bookService.update(id.toString(), req.body);
       }
 
       return res.redirect('/book');

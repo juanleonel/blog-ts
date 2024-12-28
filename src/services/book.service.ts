@@ -1,16 +1,16 @@
 import { IBookService } from "../interfaces/IBookService.interface";
-import { Book } from "../models/book.interface";
+import { IBook } from "../models/book.interface";
 import { BookModel } from "../models/book.model";
 
 export class BookService implements IBookService {
-  add = async (book: Book): Promise<Book> => {
+  add = async (book: IBook): Promise<IBook> => {
     try {
       const newBook = new BookModel();
       newBook.title = book.title;
       newBook.author = book.author;
       newBook.isbn = book.isbn;
       newBook.createdDate = new Date();
-      newBook.releaseDate = book.releaseDate;
+      newBook.releaseDate = new Date(book.releaseDate).toISOString();
 
       return await newBook.save();
     } catch (error: any) {
@@ -18,7 +18,7 @@ export class BookService implements IBookService {
     }
   }
 
-  find = async (query: object): Promise<Array<Book> | null | undefined> => {
+  find = async (query: object): Promise<Array<IBook> | null | undefined> => {
     try {
       return await BookModel.find(query);
     } catch (error: any) {
@@ -26,7 +26,7 @@ export class BookService implements IBookService {
     }
   }
 
-  update = async (id: string, book: Book): Promise<Book | null | undefined> => {
+  update = async (id: string, book: IBook): Promise<IBook | null | undefined> => {
     try {
       const updateResult = await BookModel.findOneAndUpdate({
         _id: new Object(id)
@@ -38,7 +38,15 @@ export class BookService implements IBookService {
     }
   }
 
-  getOne = async (query: object): Promise<Book | null | undefined> => {
+  getOne = async (query: object): Promise<IBook | null | undefined> => {
     return BookModel.findOne(query);
+  }
+
+  delete = async (id: string): Promise<IBook | undefined | null> => {
+    try {
+      return BookModel.findByIdAndDelete(new Object(id))
+    } catch (error: any) {
+      throw Error('Occurring an error while deleting the book ' + error.message)
+    }
   }
 }

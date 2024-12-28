@@ -3,28 +3,27 @@
   <p>Welcome to {{title}}</p>
   <a href="/book/add" class="btn btn-primary">Create book</a>
 
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">title</th>
           <th scope="col">author</th>
           <th scope="col">isbn</th>
+           <th scope="col">release date</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
           {{#each books}}
             <tr>
-                <th> {{ _id }} </th>
                 <th> {{ title }} </th>
                 <th> {{ author }} </th>
                 <th> {{ isbn }} </th>
+                <th> {{ releaseDate }} </th>
                 <th>
-                  <a href="/book/add/{{ _id }}">Update</a> |
-                  <form action="/" method="post" class="form-action">
-                      <input type="hidden" name="_id" value="{{ _id }}">
-                      <button class="btn btn-danger" type="submit">Delete</button>
+                  <a href="/book/add/{{ _id }}"><i class="fa-solid fa-pen-to-square"></i></a> |
+                  <form action="/book/delete/{{ _id }}" method="post" class="form-action">
+                      <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
                   </form>
                 </th>
             </tr>
@@ -32,3 +31,5 @@
       </tbody>
     </table>
 </div>
+
+

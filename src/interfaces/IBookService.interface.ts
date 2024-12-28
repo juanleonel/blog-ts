@@ -1,8 +1,9 @@
-import { Book } from "../models/book.interface";
+import { IBook } from "../models/book.interface";
 
 export interface IBookService {
-  add(body: Book): Promise<Book>;
-  find(query?: object):  Promise<Array<Book> | null | undefined>;
-  getOne(query?: object): Promise<Book | null | undefined>;
-  update(id: string, body: any): Promise<Book | null | undefined>;
+  add(body: IBook): Promise<IBook>;
+  find(query?: object):  Promise<Array<IBook> | null | undefined>;
+  getOne(query?: object): Promise<IBook | null | undefined>;
+  update(id: string, body: any): Promise<IBook | null | undefined>;
+  delete(id: string): Promise<IBook | null | undefined>;
 }

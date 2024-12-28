@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-export interface Book extends mongoose.Document {
+export interface IBook extends mongoose.Document {
   author: string;
   createdDate: Date,
   title: string;
   isbn: string;
-  releaseDate: Date,
+  releaseDate: Date | string,
 }
