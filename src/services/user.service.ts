@@ -3,6 +3,10 @@ import { UserModel } from "../models/user.model";
 import { IUser } from "../models/user.interface";
 
 export class UserService implements IUserService {
+  signUp = async (body: any): Promise<IUser> => {
+    throw new Error("Method not implemented.");
+  }
+
   add = async (user: IUser): Promise<IUser> => {
     try {
       const item = new UserModel();

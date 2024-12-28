@@ -5,6 +5,7 @@ import * as bodyParser from 'body-parser';
 import * as routes from './routes/index';
 import { connect } from './database/connection';
 import bookRoutes from './routes/book.routes';
+import authRoutes from './routes/auth.routes';
 import createHttpError from 'http-errors';
 import session from "express-session";
 import passport from "passport";
@@ -15,6 +16,9 @@ connect();
 
 const portNumber = 8080;
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
 app.use(session({
   secret: 'leon',
   resave: false,
@@ -30,27 +34,40 @@ passport.use(
         if (!user) {
           return done(null, false, { message: 'Incorrect username or password.' });
         }
-        // const valid = await user.validPassword(password);
 
-        // if (!valid) {
-        //   return done(null, false, { message: 'Incorrect username or password.' });
-        // }
-        
+        if (user.password !== password) {
+          return done(null, false, { message: "Incorrect password" });
+        }
+
         return done(null, user);
       } catch (error) {
         return done(error);
       }
     }
   )
-)
+);
+passport.serializeUser((user: any, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await UserModel.findById(id);
+
+    done(null, user);
+  } catch(err) {
+    done(err);
+  }
+});
 
 app.set('port', portNumber);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: false }));
 
+app.use('/auth', authRoutes);
 app.use('/book', bookRoutes);
 app.get('/', routes.index);
 // app.get('/book', routes.list);
